@@ -68,6 +68,7 @@ make env-setup
 Install the dependencies.
 
 ```bash
+# Run this command when you update the pyproject.toml
 make install
 
 # Install the dev and test dependencies

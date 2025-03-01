@@ -14,9 +14,11 @@ install:
 	pip install -e .
 
 dev-install:
+	make activate
 	pip install -e ".[dev]"
 
 test-install:
+	make activate
 	pip install -e ".[test]"
 
 all-install:
