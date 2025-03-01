@@ -183,7 +183,7 @@ Same as branch, indicate the scope of your commit. If additional explaination ar
 ```bash
 commit -m "feat(preproc): add new preprocessing function"
 
-commit -m "doc(preproc): improve the preprocessing doc" -m "Added new preprocessing behavior in the documentation, and update old doc for CLI commands".
+commit -m "doc(preproc): improve the preprocessing doc" -m "Added new preprocessing behavior in the documentation, and update old doc for CLI commands"
 ```
 
 ### Commit content

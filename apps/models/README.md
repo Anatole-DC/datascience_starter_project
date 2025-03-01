@@ -10,3 +10,9 @@ model_name/
 ├── README.md       # README file to document what changed about your model
 └── main.py         # The main file containing the execution source code
 ```
+
+To generate a model, run the following command :
+
+```bash
+make new-model MODEL_NAME="your_new_model_name"
+```
