@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "package"
+version = "1.0.0"
+authors = [
+    {name = "Anatole-DC", email = "adechauveron@gmail.com"}
+]
+readme = "README.md"
+requires-python=">=3.10.6"
+description = "A starter template for datascience projects."
+keywords = [
+    "starter",
+    "template",
+    "datascience"
+]
+
+dependencies = [
+    "python-dotenv",    # Handles dotfiles
+    "tensorflow",       # Neural networks
+    "sckikit-learn"     # Machine learning
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",            # Code format
+    "flake8"            # Code linter
+]
+test = [
+    "pytest"            # Unit tests
+]
+
+[project.scripts]
+package-hello = "package.cli.cli_main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]

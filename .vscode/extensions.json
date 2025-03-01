@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+      "ms-python.python",             // Python tools
+      "ms-toolsai.jupyter",           // Vscode jupyter
+      "editorconfig.editorconfig",    // Code format on save
+      "tamasfe.even-better-toml",     // Toml file parser
+      "njpwerner.autodocstring"       // Python auto docstring
+    ]
+}
