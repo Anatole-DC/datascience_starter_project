@@ -1,0 +1,71 @@
+name: Template feature request
+description: Issue regarding the wanted new features for this template.
+
+title: 'Feature: '
+labels: ['enhancement']
+assignees:
+  - Anatole-DC
+
+body:
+  # Introduction
+  - type: markdown
+    attributes:
+      value: |
+        Welcome to the ds_starter_project feature request form !
+        If you like to use this template but you think it lacks some features, then you are at the right place.
+
+  - type: markdown
+    attributes:
+      value: |
+        This project comes with basic libraries for code quality.
+        It's up to you to add data science libraries like scikit-learn or pytorch.
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Term validation
+      options:
+        - label: I agree with the terms of the feature request
+          required: true
+
+  # The areas concerned by the feature
+  - type: dropdown
+    id: feature-range
+    attributes:
+      label: Parts of the project concerned by the feature
+      multiple: true
+      options:
+        - CI/CD
+        - Documentation
+        - Code cleanup
+        - Project dependencies
+        - Models
+        - Docker and services
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-state-issue
+    attributes:
+      label: Describe the current issue
+      description: Explain what do you think is currently missing, and why it's an issue to you.
+      placeholder: The project lacks...
+    validations:
+      required: true
+
+  - type: textarea
+    id: feature-solution
+    attributes:
+      label: Describe the solution to the issue
+      description: Explain what solution you thought to the issue and how it solves it.
+      placeholder: The project should implement...
+    validations:
+      required: true
+
+  - type: textarea
+    id: feature-ideal-behavior
+    attributes:
+      label: Further description of the feature
+      description: Describe how would you want to use the feature.
+    validations:
+      required: false
