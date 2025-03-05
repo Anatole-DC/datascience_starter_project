@@ -37,3 +37,9 @@ jobs:
     - name: Tests
       run: pytest
       continue-on-error: true
+
+    - name: Check for warnings
+      if: ${{ failure() }}
+      run: |
+        echo "Build completed with warnings. Please review the lint and test results."
+        exit 1
