@@ -77,6 +77,19 @@ In the above exemple, we use the word `def` to store a definition. But the `def`
 Be careful not to name a variable with the same name you used for a python function ! This will cause the function to be overwritten by the variable !
 ```
 
+## Remove magic numbers
+
+Magic numbers are values left in your code in raw, without an explicit name attached to it.
+
+```python
+# Even if you are certain of what this code does, don't
+if age > 21 : do_something()
+
+# Do
+WINE_BEST_AGE = 21
+if wine_age > WINE_BEST_AGE: do_something()
+```
+
 ## Case
 
 You want to keep a consistent case for your element type as well. Here are rules that are generally applied in python.

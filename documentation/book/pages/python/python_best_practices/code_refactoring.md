@@ -24,3 +24,7 @@ Imagine you have a very large python module file. Follow this process :
 
 > This will produce more files, but they will self contain all utilities function.  
 > Using the same name for the directory will also ensure your links are not broken.
+
+```{warning}
+Be careful not to overcomplicate things to quickly. No need to create 20 empty files planning future refactoring ahead.
+```
