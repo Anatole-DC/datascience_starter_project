@@ -1,0 +1,59 @@
+name: Repository Cleanup
+
+on:
+  workflow_dispatch:
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+
+    # Prevent the action to run on the template repository
+    if: github.event.repository.name != 'datascience_starter_project'
+
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Make script executable
+        run: chmod +x script/rename.sh
+
+      - name: Cleanup README
+        run: |
+          CAPITALIZED_NAME=$(echo "${{ github.event.repository.name }}" | sed -E 's/([a-z0-9])([A-Z])/\1 \2/g; s/[-_]/ /g' | tr '[:lower:]' '[:upper:]')
+          ./script/rename.sh -f README.md --find "DATASCIENCE PROJECT TEMPLATE" --replace-with "${CAPITALIZED_NAME}"
+
+      - name: Cleanup code
+        run: |
+          SNAKE_CASE_NAME=$(echo "${{ github.event.repository.name }}" | sed -E 's/([a-z0-9])([A-Z])/\1 \2/g; s/[-_]/_/g' | tr '[:upper:]' '[:lower:]')
+          ./script/rename.sh -f package/cli/cli_main.py --find "package" --replace-with "${SNAKE_CASE_NAME}"
+          mv package/ "${SNAKE_CASE_NAME}/"
+
+      - name: Cleanup configs
+        run: |
+          SNAKE_CASE_NAME=$(echo "${{ github.event.repository.name }}" | sed -E 's/([a-z0-9])([A-Z])/\1 \2/g; s/[-_]/_/g' | tr '[:upper:]' '[:lower:]')
+          ./script/rename.sh -f pyproject.toml --find "Your Name" --replace-with "${GITHUB_REPOSITORY_OWNER}"
+          ./script/rename.sh -f pyproject.toml --find "package" --replace-with "${SNAKE_CASE_NAME}"
+
+      - name: Update project description
+        run: |
+          BASE_TEMPLATE_REPOSITORY_DESCRIPTION=$(curl https://api.github.com/repos/Anatole-DC/datascience_starter_project  2>/dev/null | grep description | head -n 1 | sed 's/"description": "\(.*\)",/\1/')
+          REPOSITORY_DESCRIPTION=$(curl https://api.github.com/repos/${GITHUB_REPOSITORY}  2>/dev/null | grep description | head -n 1 | sed 's/"description": "\(.*\)",/\1/')
+          echo $BASE_TEMPLATE_REPOSITORY_DESCRIPTION
+          echo $REPOSITORY_DESCRIPTION
+          ./script/rename.sh -f README.md -f pyproject.toml --find "${BASE_TEMPLATE_REPOSITORY_DESCRIPTION}" --replace-with "${REPOSITORY_DESCRIPTION}"
+
+      - name: Remove cleanup files
+        run : |
+          rm -fr .github/workflows/cleanup.yml
+          rm -fr .github/ISSUE_TEMPLATE/
+          rm -fr script/
+
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "clean(template): Automatic template placeholder cleanup"
+          create_branch: false
