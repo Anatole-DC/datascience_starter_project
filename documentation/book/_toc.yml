@@ -12,15 +12,16 @@ parts:
             sections:
               - file: pages/python/python_best_practices/naming_things
               - file: pages/python/python_best_practices/type_hints
-              - file: pages/python/python_best_practices/comments
               - file: pages/python/python_best_practices/docstring
+              - file: pages/python/python_best_practices/comments
           - file: pages/python/python_best_practices/functions
           - file: pages/python/python_best_practices/classes
+          - file: pages/python/python_best_practices/imports
           - file: pages/python/python_best_practices/code_refactoring
           - file: pages/python/python_best_practices/internal_libraries
             sections:
               - file: pages/python/python_best_practices/pathlib
-
+              - file: pages/python/python_best_practices/enums
 
       - file: pages/python/python_advanced/python_advanced
         sections:
