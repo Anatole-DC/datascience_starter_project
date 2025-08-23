@@ -18,12 +18,17 @@ keywords = [
 ]
 
 dependencies = [
-    "python-dotenv",    # Handles dotfiles
-    "tensorflow",       # Neural networks
-    "sckikit-learn"     # Machine learning
+    "python-dotenv",        # Handles dotfiles
+    # "tensorflow",         # Neural networks
+    # "sckikit-learn"       # Machine learning
 ]
 
 [project.optional-dependencies]
+jupyter  = [
+    "jupyterlab",
+    "notebook",
+    "jupyter-book"
+]
 dev = [
     "black",            # Code format
     "flake8"            # Code linter
