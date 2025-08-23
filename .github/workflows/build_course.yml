@@ -5,7 +5,7 @@ on:
   push:
     branches: [ master ]
     paths:
-      - './documentation/book/**'
+      - 'documentation/book/**'
   
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
