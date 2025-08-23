@@ -37,3 +37,7 @@ new-model:
 	@mkdir -p apps/models/$(MODEL_NAME)
 	@cp assets/templates/model_template.py apps/models/$(MODEL_NAME)/main.py
 	@touch apps/models/$(MODEL_NAME)/README.md
+
+book:
+	jb clean documentation/book/
+	jb build documentation/book/

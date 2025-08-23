@@ -2,12 +2,66 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: intro
+root: pages/intro
 parts:
-  - caption: Python
+  - caption: Python project
     chapters:
-      - file: pages/markdown
-      - file: pages/markdown-notebooks
-  - caption: Python advanced
+      - file: pages/python/python_best_practices/python
+        sections:
+          - file: pages/python/python_best_practices/code_documentation
+            sections:
+              - file: pages/python/python_best_practices/naming_things
+              - file: pages/python/python_best_practices/type_hints
+              - file: pages/python/python_best_practices/comments
+              - file: pages/python/python_best_practices/docstring
+          - file: pages/python/python_best_practices/functions
+          - file: pages/python/python_best_practices/classes
+          - file: pages/python/python_best_practices/code_refactoring
+          - file: pages/python/python_best_practices/internal_libraries
+            sections:
+              - file: pages/python/python_best_practices/pathlib
+
+
+      - file: pages/python/python_advanced/python_advanced
+        sections:
+          - file: pages/python/python_advanced/code_quality
+          - file: pages/python/python_advanced/package_properly
+          - file: pages/python/python_advanced/vscode
+          - file: pages/python/python_advanced/logs
+          - file: pages/python/python_advanced/cli
+          - file: pages/python/python_best_practices/asserts
+          - file: pages/python/python_advanced/useful_libraries
+            sections:
+              - file: pages/python/python_advanced/libraries/typer
+              - file: pages/python/python_advanced/libraries/dotenv
+
+      - file: pages/python/project_structure/project_structure
+        sections:
+          - file: pages/python/project_structure/architecture
+          - file: pages/python/project_structure/package_vs_app
+          - file: pages/python/project_structure/documentation
+          - file: pages/python/project_structure/makefile
+
+  - caption: Github and projects
     chapters:
-      - file: pages/python/python.md
+      - file: pages/project/github_project/github
+        sections:
+          - file: pages/project/github_project/new_project
+          - file: pages/project/github_project/branches
+          - file: pages/project/github_project/commits
+          - file: pages/project/github_project/workflow
+          - file: pages/project/github_project/dashboard
+
+      - file: pages/project/github_advanced/project_advanced
+        sections:
+          - file: pages/project/github_advanced/ci_cd
+          - file: pages/project/github_advanced/monorepos
+          - file: pages/project/github_advanced/github_registry
+          - file: pages/project/github_advanced/github_pages
+          - file: pages/project/github_advanced/docker_and_docker_compose
+
+  - caption: Annexes
+    chapters:
+      - file: pages/annexes/code_samples
+      - file: pages/annexes/links
+
