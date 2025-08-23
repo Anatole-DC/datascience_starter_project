@@ -1,6 +1,6 @@
 <h1 align="center">DATASCIENCE PROJECT TEMPLATE</h1>
 
-_<h4 align="center">A starter template for datascience projects (by [Anatole-DC](https://github.com/Anatole-DC))</h4>_
+_<h4 align="center">A starter template for datascience projects.</h4>_
 
 This project describes what could be considered a good starting architecture for datascience projects. This project aims at providing a clean directory organization to anticipate future refactoring headaches.
 
@@ -12,6 +12,8 @@ Most important points of this template :
 - Extensive [.gitignore](.gitignore)
 - Code quality tools (see [here](/documentation/best_practices.md#code-quality) on how to use them)
 - [Makefile](Makefile) with commands shortcuts
+
+_Template created by [Anatole-DC](https://github.com/Anatole-DC)_
 
 ## Summary
 

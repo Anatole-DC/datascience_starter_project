@@ -18,6 +18,8 @@ This document gives advices on how to develop good code.
     - [Type hints](#type-hints)
     - [Comments](#comments)
     - [Environment variables](#environment-variables)
+  - [Python's specific](#pythons-specific)
+    - [Use `pathlib` instead of `os.path`](#use-pathlib-instead-of-ospath)
   - [Git](#git)
     - [Naming conventions](#naming-conventions-1)
       - [Branches](#branches)
@@ -79,7 +81,7 @@ module_name/
 
 ### Functions
 
-Function size should not exceed 60 lines (according to NASA).
+Function size should not exceed 60 lines ([according to NASA power of 10's 4th rule](https://en.wikipedia.org/wiki/The_Power_of_10:_Rules_for_Developing_Safety-Critical_Code)).
 
 Although they can be extremely useful, beware of the function docstrings. Developer don't often think about updating them. If you write function doctstrings, think about updating it when you are updating the function source code !
 
@@ -160,6 +162,98 @@ Store them in a `.env` file at the root of your project.
 **DO NOT PUSH `.env` FILE ON GITHUB !!!**
 
 You can create and push a `.env.template` file that will contain all the variables that the users need to write themselves in order to start using your project.
+
+## Python's specific
+
+### Use `pathlib` instead of `os.path`
+
+[Pathlib](https://docs.python.org/3/library/pathlib.html) is a python's native library, allowing to greatly simplify path handling and usages.
+
+> TLDR: you don't need to use `os.join`, `os.path`, etc...
+
+To use it, you must instantiate a `Path` class, with your absolute or relative path as parameter.
+
+**How to know if a path is a directory, a file, or even if it exists :**
+
+Without pathlib :
+
+```python
+import os
+
+my_path = "my_path"
+
+os.path.exists(my_path)
+os.path.isfile(my_path)
+os.path.isdir(my_path)
+```
+
+With pathlib :
+
+```python
+from pathlib import Path
+
+my_path = Path("my_path")
+
+my_path.exists(my_path)
+my_path.isfile(my_path)
+my_path.isdir(my_path)
+```
+
+**Join paths**
+
+Without pathib :
+
+```python
+import os
+
+my_path = "my_path"
+sub_my_path_1 = "my_path"
+sub_my_path_2 = "my_path"
+
+os.path.join([my_path, sub_my_path_1, sub_my_path_2])
+```
+
+With pathlib :
+
+```python
+from pathlib import Path
+
+my_path = Path("my_path")
+sub_my_path_1 = "my_path"
+sub_my_path_2 = "my_path"
+
+my_path / sub_my_path_1 / sub_my_path_2     # Like in your terminal
+```
+
+**Directory navigation**
+
+Without pathlib :
+
+```python
+import os
+
+my_path = "my_path"
+
+os.path.abspath(my_path)                     # Absolute path
+os.path.dirname(my_path)                     # Parent directory
+os.path.basename(my_path)                    # Path last element's name
+os.path.splitext(file_name)[0]               # Filename without extension
+os.path.basename(os.path.basename(my_path))  # Navigate up two directories
+```
+
+With pathlib :
+
+```python
+from pathlib import Path
+
+my_path = Path("my_path")
+
+my_path.absolute()       # Absolute path
+my_path.parent           # Parent directory
+my_path.name             # Path last element's name
+my_path.stem             # Filename without extension
+my_path.parent.parent    # Navigate up two directories
+```
 
 ## Git
 
