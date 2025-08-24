@@ -1,11 +1,13 @@
-# Welcome to your Jupyter Book
+# Welcome to the python project course
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+This book is a collection of personal tips and advices acquired from all the experience I have acquired from both professional and personnal projects, wether in datasciences or in web and embedded software cases.
 
-Check out the content pages bundled with this sample book to see more.
+This book was intended for Le Wagon datascience's bootcamp. But I do believe it can be useful for any python beginner developer.
+
+```{admonition} Disclaimer !
+:class: warning
+I was alone to write this book, and using my own experience. Therefore, some of the informations can become (or already be outdated), or may differ from what other professionals do in other places. Please do challenge the concepts and claims you'll read here if you feel the need to.
+```
 
 ```{tableofcontents}
 ```
