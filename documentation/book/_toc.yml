@@ -40,7 +40,6 @@ parts:
         sections:
           - file: pages/python/project_structure/architecture
           - file: pages/python/project_structure/package_vs_app
-          - file: pages/python/project_structure/documentation
           - file: pages/python/project_structure/makefile
 
   - caption: Github and projects
