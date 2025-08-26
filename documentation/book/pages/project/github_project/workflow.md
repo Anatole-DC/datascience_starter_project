@@ -48,3 +48,9 @@ The reason we do this is because closing the pull request when merging will clos
 If you don't have any conflicts, you should see a "Merge" button. When merging :
 - If merging to another branch, use the normal merge
 - If merging to a master branch, switch to "squash and merge"
+
+##  Summary
+
+```{figure} ../../../assets/git.drawio.png
+Git workflow summary
+```
